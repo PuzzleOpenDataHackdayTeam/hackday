@@ -1,0 +1,19 @@
+login: &login
+  adapter: mysql2
+  username: root
+  password:
+  encoding: UTF8
+  host: localhost
+  wait_timeout: 2147483 # possible fix for 'Mys​ql2::​Error​: MyS​QL se​rver ​has g​one a​way'
+
+development:
+  <<: *login
+  database: hackday_development
+
+test: &TEST
+  <<: *login
+  database: hackday_test
+
+production:
+  <<: *login
+  database: hackday_production

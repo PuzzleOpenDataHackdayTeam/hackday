@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  grosscosts: 9.99
+  income: 9.99
+  year: 1
+  fixed: false
+  financial: 
+
+two:
+  grosscosts: 9.99
+  income: 9.99
+  year: 1
+  fixed: false
+  financial: 

@@ -1,5 +1,6 @@
 # encoding: utf-8
 require 'csv'
+require 'awesome_print'
 
 desc 'import financial data'
 

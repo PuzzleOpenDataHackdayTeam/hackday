@@ -14,22 +14,18 @@
 ActiveRecord::Schema.define(:version => 20120427142822) do
 
   create_table "financial_data", :force => true do |t|
-    t.decimal  "grosscosts"
-    t.decimal  "income"
-    t.integer  "year"
-    t.boolean  "fixed"
-    t.integer  "financial_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.decimal "grosscosts"
+    t.decimal "income"
+    t.integer "year"
+    t.boolean "fixed"
+    t.integer "financial_id"
   end
 
   create_table "financials", :force => true do |t|
-    t.string   "name"
-    t.integer  "id_number"
-    t.string   "type"
-    t.integer  "financials_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.string  "name"
+    t.integer "id_number"
+    t.string  "type"
+    t.integer "financials_id"
   end
 
 end

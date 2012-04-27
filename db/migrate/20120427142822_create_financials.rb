@@ -5,8 +5,6 @@ class CreateFinancials < ActiveRecord::Migration
       t.integer :id_number
       t.string :type
       t.references :financials
-
-      t.timestamps
     end
   end
 end

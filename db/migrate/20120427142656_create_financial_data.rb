@@ -6,8 +6,6 @@ class CreateFinancialData < ActiveRecord::Migration
       t.integer :year
       t.boolean :fixed
       t.references :financial
-
-      t.timestamps
     end
   end
 end

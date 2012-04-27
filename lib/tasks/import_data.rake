@@ -3,7 +3,7 @@ require 'csv'
 
 desc 'import financial data'
 
-task :import_data do
+task :import_data => :environment do
   csv = CSV.read('lib/assets/data.csv')
   
   summaries = []
@@ -20,15 +20,24 @@ task :import_data do
       directorate = Directorate.create(:id_number => csv[i-2][0].to_i, :name => csv[i-2][1])
       
       for x in [3,5,6,8]
-        brutto  = csv[i+4][x]
-        erloese = csv[i+6][x]
-        year    = csv[i+3][x]
+        brutto  = csv[i+4][x].gsub(/,/, '').to_f
+        erloese = csv[i+6][x].gsub(/,/, '').to_f
+        year    = csv[i+3][x].gsub(/,/, '').to_f
         fixed   = csv[i+2][x] == 'Rechnung'
         
         directorate.financial_datas.create(:grosscosts => brutto, :income => erloese, :year => year, :fixed => fixed) 
       end
     elsif /\d{3}/.match number
+      agency = Agency.create(:id_number => csv[i-2][0].to_i, :name => csv[i-2][1])
       
+      for x in [3,5,6,8]
+        brutto  = csv[i+4][x].gsub(/,/, '').to_f
+        erloese = csv[i+6][x].gsub(/,/, '').to_f
+        year    = csv[i+3][x].gsub(/,/, '').to_f
+        fixed   = csv[i+2][x] == 'Rechnung'
+        
+        agency.financial_datas.create(:grosscosts => brutto, :income => erloese, :year => year, :fixed => fixed) 
+      end
     end
   end 
 end

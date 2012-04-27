@@ -1,3 +1,3 @@
 class Financial < ActiveRecord::Base
-  has_many :financial_data
+  has_many :financial_datas
 end
